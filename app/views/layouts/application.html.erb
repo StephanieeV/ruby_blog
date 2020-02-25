@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>TestBlog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Blog</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<p class="navbar-text float-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>
-  <%= link_to  "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
-  <%= link_to  "Logout", destroy_user_session_path, method: :delete, :class => "navbar-link" %>
-<% else %>
-  <%= link_to  "Sign up", new_user_registration_path, :class => "navbar-link" %>
-  <%= link_to  "Login", new_user_session_path, :class => "navbar-link" %>
-<% end %>
-</p>
-<ul class="navbar-nav mr-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="/posts">Posts</a>
-<%= yield %>
 
+<body>
+  <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <%= link_to 'Home', posts_path, :class => "navbar-item" %>
+        <%= link_to 'Add new post', new_post_path, :class => "navbar-item" %>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if user_signed_in? %>
+              <p>Logged in as <strong><%= current_user.email %></strong></p>
+              <%= link_to "Edit profile", edit_user_registration_path, :class => "button is-primary" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "button is-light" %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => "button is-primary" %>
+              <%= link_to "Login", new_user_session_path, :class => "button is-light" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Project blog by <strong>Stephanie Vieville</strong> and <strong>Sylvie Nguyen</strong>.
+      </p>
+    </div>
+  </footer>
 </body>
+
 </html>

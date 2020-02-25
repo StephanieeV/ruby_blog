@@ -2,7 +2,7 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "input" %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
@@ -10,21 +10,22 @@
   </div>
   <div class="field">
     <%= f.label :introduction %><br>
-    <%= f.text_field :introduction %>
+    <%= f.text_field :introduction, :class => "input" %>
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%= f.text_area :body, :class => "input" %>
   </div>
   <div class="field">
     <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
+    <%= f.text_field :picture, :class => "input" %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id, :class => "input" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button is-small is-primary" %>
   </div>
+  <br>
 <% end %>

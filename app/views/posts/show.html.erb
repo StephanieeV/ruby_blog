@@ -1,34 +1,32 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-6">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title title is-1">
+            <%= @post.title %>
+          </p>
+        </header>
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <h3 class="subtitle is-3"><%= @post.introduction %></h3>
+            <h4 class="subtitle is-4"><%= @post.body %></h4>
+            <br>
+            <h5 class="subtitle is-5"><%= @post.date %></h5>
+          </div>
+        </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @post.date %>
-</p>
-
-<p>
-  <strong>Introduction:</strong>
-  <%= @post.introduction %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @post.picture %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
+        <div class="columns is-centered">
+          <%= link_to 'Edit', edit_post_path(@post), :class => "button is-small is-primary" %>
+          <%= link_to 'Back', posts_path, :class => "button is-small is-light" %>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "bulma-rails", "~> 0.8.0"
+
 # Gem devise
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
